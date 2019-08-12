@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'vending', component: VendingComponent },
   { path: 'delivery', component: DeliveryComponent },
   { path: 'admin', component: AdminComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'vending', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
 ];
