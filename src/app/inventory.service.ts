@@ -13,9 +13,10 @@ export class InventoryService {
   constructor(private firestore: AngularFirestore) { }
 
   getMachines() {
-
     return this.firestore.collection('machines').snapshotChanges();
-
   }
 
+  getProducts(machine) {
+    return this.firestore.collection('machines').doc(machine).collection('products').snapshotChanges();
+  }
 }

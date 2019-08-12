@@ -15,6 +15,7 @@ export class DeliveryComponent implements OnInit {
 
   ngOnInit() {
     this.getMachines();
+
   }
 
   getMachines() {
@@ -26,6 +27,7 @@ export class DeliveryComponent implements OnInit {
           ...e.payload.doc.data()
         };
       });
+      console.log(this.machines);
     });
 
   }

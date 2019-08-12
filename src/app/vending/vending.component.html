@@ -1,1 +1,4 @@
-<p>vending works!</p>
+<div *ngFor="let product of products">
+  <p>{{ product.title }}</p>
+  <img src="{{ product.img }}" alt="">
+</div>
