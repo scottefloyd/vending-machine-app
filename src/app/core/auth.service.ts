@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-//import 'rxjs/add/operator/toPromise';
+// import 'rxjs/add/operator/toPromise';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 
@@ -11,6 +11,9 @@ export class AuthService {
   constructor(public afAuth: AngularFireAuth) { }
 
   doGoogleLogin() {
+
+    // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+
     return new Promise<any>((resolve, reject) => {
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('profile');

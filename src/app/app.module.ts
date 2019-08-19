@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { VendingComponent } from './vending/vending.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { AdminComponent } from './admin/admin.component';
-import { AuthService } from './auth.service';
+import { AuthService } from './core/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // environment import
@@ -20,6 +20,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { UserComponent } from './user/user.component';
+import { UserResolver } from './user/user.resolver';
+import { AuthGuard } from './core/auth.guard';
+import { UserService } from './core/user.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { RegisterComponent } from './register/register.component';
     AdminComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { RegisterComponent } from './register/register.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, UserService, UserResolver, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,13 +6,15 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './core/auth.guard';
+import { UserResolver } from './user/user.resolver';
+
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'vending', component: VendingComponent },
-  { path: 'delivery', component: DeliveryComponent },
+  { path: 'delivery', component: DeliveryComponent, resolve: { data: UserResolver}},
   { path: 'admin', component: AdminComponent },
   { path: '', redirectTo: 'vending', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../core/auth.service';
 import { Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -31,9 +32,13 @@ export class LoginComponent implements OnInit {
   }
 
   tryGoogleLogin(){
+
+    //this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     this.authService.doGoogleLogin()
     .then(res => {
-      this.router.navigate(['/user']);
+      console.log(res);
+
+      // this.router.navigate(['/delivery']);
     });
   }
 
